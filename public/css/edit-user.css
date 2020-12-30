@@ -1,0 +1,44 @@
+.username-head {
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  font-weight: 400;
+  margin: 0;
+}
+
+.username-head .badge {
+  margin-left: 10px;
+  font-weight: 400;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item.username-view {
+  flex-grow: 5;
+  display: flex;
+  vertical-align: middle;
+  justify-content: center;
+}
+
+.nav-item.nav-back {
+  flex-grow: 1;
+}
+
+.nav-item {
+  padding: 10px;
+}
+
+.edit-btn {
+  display: block;
+  width: auto;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.background-div label {
+  color: white;
+}
+

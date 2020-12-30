@@ -1,0 +1,15 @@
+.background-div .table-responsive {
+  background-color: white;
+  border-radius: 10px;
+  border: none;
+}
+
+.background-div th {
+}
+
+.logout-btn {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+

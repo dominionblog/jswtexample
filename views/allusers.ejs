@@ -1,0 +1,41 @@
+<%- include("./partials/header.ejs") %> 
+<h2 class="username-header">Welcome, <%= user.username %></h2>
+<a class="btn btn-primary logout-btn" role="button" href="/auth/logout">Logout</a>
+<% if (err) { %> 
+    <div class="alert alert-danger">
+        <h1>An Error Occured</h1>
+        <p><%= err %></p>
+    </div>
+<% } %> 
+<% if (success) { %> 
+    <div class="alert alert-success">
+        <h1>Operation Successful</h1>
+        <p><%= success %></p>
+    </div>
+<% } %> 
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (i = 0; i < users.length; i++) { %> 
+                <tr class="row-<%= users[i]._id %>">
+                    <td><%= users[i].username %></td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <form method="POST" action="/users/delete/<%= users[i]._id %>?_method=DELETE">
+                                <input class="btn btn-danger delete-btn" value='Delete' type="submit">
+                            </form>
+                            <a href="/users/view/<%= users[i]._id %>" class="btn btn-success view-btn" role="button">Open</a>
+                        </div>
+                    </td>
+                </tr>
+            <% } %> 
+        </tbody>
+    </table>
+</div>
+<%- include("./partials/footer.ejs") %> 

@@ -1,0 +1,45 @@
+<%- include("./partials/header.ejs") %>
+<div class="nav-container">
+    <div class="nav-item nav-back">
+        <a href="/users/view/all" class="btn btn-primary back-btn" role="button">
+            <i class="fa fa-arrow-circle-left"></i>
+            All Users
+        </a>
+    </div>
+    <div class="nav-item username-view">
+        <h1 class="username-head">Viewing user<span class="badge badge-primary"><%= user.username %></span></h1>
+    </div>
+</div>
+<% if (err) { %>
+    <div class="alert alert-danger">
+        <h1>An Error Occured</h1>
+        <%= err %>
+    </div>
+<% } %>
+<% if (success) { %>
+    <div class="alert alert-success">
+        <h1>Success!</h1>
+        <%= success %>
+    </div>
+<% } %>
+<div class="container">
+    <div class="row">
+        <div class="col edit-section">
+            <h2>Basic Info</h2><label>Username</label>
+            <form method="POST" action="/users/edit/<%= user._id %>?_method=PUT">
+                <input name="username" type="text" class="form-control" value="<%= user.username %>" />
+                <button class="btn btn-success edit-btn" type="submit">Save Changes</button></form>
+        </div>
+        <div class="col">
+            <h2>Danger Zone</h2>
+            <form method="POST" action="/auth/updatepassword/<%= user._id %>?_method=PUT">
+                <input name="password" type="text" class="form-control" placeholder="new password" />
+                <button class="btn btn-danger edit-btn" type="submit">Change Password</button>
+            </form>
+            <form method="POST" action="/users/delete/<%= user._id %>?_method=DELETE">
+                <input type="submit" class="btn btn-danger edit-btn" value="Delete">
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("./partials/footer.ejs") %>

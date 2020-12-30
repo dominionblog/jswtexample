@@ -1,0 +1,17 @@
+.background-div .table-responsive {
+  background-color: white;
+  border-radius: 10px;
+  border: none;
+}
+
+.username-header {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.logout-btn {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
